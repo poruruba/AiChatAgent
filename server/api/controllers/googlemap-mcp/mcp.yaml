@@ -1,0 +1,9 @@
+paths:
+  /mcp-googlemap:
+    post:
+      responses:
+        200:
+          description: Success
+          schema:
+            type: object
+
