@@ -14,7 +14,6 @@ var vue_options = {
     data: {
         message_list: [],
         input_message: "",
-        inProgress: false,
         input_apikey: "",
     },
     computed: {
@@ -31,12 +30,13 @@ var vue_options = {
         },
 
         send_message: async function(){
+            var message = {
+                input: this.input_message,
+                inProgress: true,
+            };
             try{
-                this.inProgress = true;
+                this.message_list.push(message);
 
-                var message = {
-                    input: this.input_message
-                };
                 var input = {
                     url: base_url + "/mastra-generate",
                     body: {
@@ -48,14 +48,12 @@ var vue_options = {
                 console.log(response);
 
                 message.output = response.message;
-
-                this.message_list.push(message);
                 this.input_message = "";
             }catch(error){
                 console.error(error);
                 alert(error);
             }finally{
-                this.inProgress = false;
+                message.inProgress = false;
             }
         }
     },
