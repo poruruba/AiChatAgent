@@ -31,7 +31,8 @@ export const chatAgent = new Agent({
   name: 'Chat Agent',
   instructions: `自由に会話をします。`,
 
-  model: google('gemini-1.5-pro-latest'),
+//  model: google('gemini-1.5-pro-latest'),
+  model: google('gemini-2.0-flash-lite'),
 
   tools: await mcp.getTools(),
 
