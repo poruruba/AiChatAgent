@@ -13,11 +13,6 @@ const client = new Mastra.MastraClient({
   baseUrl: MASTRA_URL,
 });
 
-(async () =>{
-	const agents = await client.getAgents();
-	console.log(agents);
-})();
-
 const agent = client.getAgent("chatAgent");
 
 exports.handler = async (event, context, callback) => {
