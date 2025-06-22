@@ -8,6 +8,7 @@ const MCP_SERVER_URL = "http://localhost:30080";
 
 const mcp = new MCPClient({
   servers: {
+/*
     GoogleMap: {
       command: "npx",
       args: [
@@ -23,6 +24,14 @@ const mcp = new MCPClient({
         "mcp-remote",
         MCP_SERVER_URL + "/mcp-bravesearch"
       ],
+    },
+  },
+*/
+    GoogleMap: {
+      url: new URL(MCP_SERVER_URL + "/mcp-googlemap")
+    },
+    BraveSearch: {
+      url: new URL(MCP_SERVER_URL + "/mcp-bravesearch")
     },
   },
 });
